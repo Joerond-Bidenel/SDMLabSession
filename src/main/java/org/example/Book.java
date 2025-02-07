@@ -7,9 +7,10 @@ public class Book {
 
     String title;
     String author;
+    Integer noOfCopies;
     LoanState currentState;
-    LoanState[] possibleStates = {new NoCopiesAvailable(), new CopiesAvailable()};
-    WaitingList waitingList = new WaitingList();
+    private final LoanState[] possibleStates = {new NoCopiesAvailable(), new CopiesAvailable()};
+    WaitingList waitingList;
     ArrayList<Copy> copies = new ArrayList<>();
 
 
@@ -18,23 +19,38 @@ public class Book {
 
         this.title = title;
         this.author = author;
+        this.noOfCopies = NoOfCopies;
+        this.waitingList = new WaitingList();
         for (int i = 0; i < NoOfCopies; i++){
             ChangeState(true);
-            copies.add(new Copy("copy" + i));
+            copies.add(new Copy("copy" + i, this));
         }
 
     }
 
-    //Loan Out a book. Changes based on State
-    public Copy RequestLoanBook(Loanee user){
-        return currentState.RequestLoanBook(user, this);
-    };
+    public void bookReturned(){
 
-    //Return a copy. May change the state.
-    public void ReturnCopy(Copy copy){
-        copy.setAvailable(true);
-        ChangeState(true);
-    };
+        if (this.noOfCopies == 0){
+            ChangeState(true);
+        }
+
+        this.waitingList.notifySubscribers("There are copies of " + this.title + " available!");
+        this.noOfCopies += 1;
+    }
+
+    public void bookTaken(){
+
+        this.noOfCopies -= 1;
+        if (noOfCopies == 0){
+            this.waitingList.notifySubscribers("There are no copies of the book " + this.title + " available!");
+            ChangeState(false);
+        }
+    }
+
+    public boolean loanThisBook(Customer c){
+        return this.currentState.loan(this, c);
+    }
+
 
     //Changes the state.
     private void ChangeState(Boolean availableCopies){
@@ -46,19 +62,13 @@ public class Book {
         }
     };
 
-
-    //Getters and Setters
-
-
-    public ArrayList<Copy> getCopies() {
-        return copies;
-    }
-
-    public void setCopyStatus(){
-
-    }
-
-    public LoanState getState() {
+    public Copy getAvailableCopy(){
+        for (Copy copy : copies){
+            if (copy.isAvailable()){
+                copy.setUnavailable();
+                return copy;
+            }
+        }
         return null;
     }
 };
