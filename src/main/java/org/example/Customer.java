@@ -1,9 +1,13 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Customer {
 
     String name = "";
     String ID = "";
+
+    ArrayList<String> loaned = new ArrayList<>();
 
     public Customer(String name, String id) {
         this.name = name;
@@ -11,11 +15,11 @@ public class Customer {
     }
 
 
-    public boolean takeBook(Copy c){
+    public boolean takeBook(String copyID){
         return false;
     }
 
-    public boolean returnBook(Copy c){
+    public boolean returnBook(String copyID){
         return false;
     }
 

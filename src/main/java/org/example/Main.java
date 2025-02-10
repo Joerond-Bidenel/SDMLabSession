@@ -23,11 +23,13 @@ public class Main {
         //John loans the 1 copy of "Flowers for Algernon".
         L.loanBook("Flowers For Algernon", customerOne);
 
+
         //Jane Also tries to loan "Flowers for Algernon" but there are now no copies left so she is added to the waiting list!
         L.loanBook("Flowers For Algernon", customerTwo);
 
         //John returns his copy of "Flowers for Algernon". Jane is alerted when this occurs via the waiting list "Notify" method
-        L.returnBook(customerOne.copiesHeld.get(0), customerOne);
+        L.returnBook("copy0", "Flowers For Algernon", customerOne);
+
 
 
 

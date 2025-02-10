@@ -4,9 +4,6 @@ import java.util.ArrayList;
 
 public class PrivateCustomer extends Customer implements Loanee{
 
-    ArrayList<Copy> copiesHeld = new ArrayList<>();
-
-
     public PrivateCustomer(String username, String ID){
         super(username, ID);
     }
@@ -19,15 +16,15 @@ public class PrivateCustomer extends Customer implements Loanee{
 
     //Take out a copy. Store the copy in the internal list.
     @Override
-    public boolean takeBook(Copy c){
-        copiesHeld.add(c);
+    public boolean takeBook(String copyID){
+        loaned.add(copyID);
         return true;
     }
 
     @Override
-    public boolean returnBook(Copy c){
-        if (copiesHeld.contains(c)){
-            copiesHeld.remove(c);
+    public boolean returnBook(String copyID){
+        if (loaned.contains(copyID)){
+            loaned.remove(copyID);
             return true;
         }
         else{

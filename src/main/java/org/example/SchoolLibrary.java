@@ -18,13 +18,13 @@ public class SchoolLibrary extends Customer implements Loanee{
     This might mean the book's copy is permanently removed from our library.
  */
     @Override
-    public boolean takeBook(Copy c){
+    public boolean takeBook(String copyID){
         //Vague and unspecified logic. Maybe they set up shipping cost etc.
         return false;
     }
 
     @Override
-    public boolean returnBook(Copy c){
+    public boolean returnBook(String copyID){
         //Transfer the other way. Invoke library and add a new copy of the book if it exists etc
         return false;
     }

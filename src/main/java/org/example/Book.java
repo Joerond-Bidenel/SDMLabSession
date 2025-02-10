@@ -28,7 +28,19 @@ public class Book {
 
     }
 
-    public void bookReturned(){
+    public boolean bookReturned(String copyID){
+
+        //Set the copy available if it exists and has been taken out already
+        boolean found = false;
+        for(Copy c : copies){
+            if (c.copyID.equals(copyID) || !c.isAvailable()){
+                c.setAvailable();
+                found = true;
+            }
+        }
+        if (!found){
+            return false;
+        }
 
         if (this.noOfCopies == 0){
             ChangeState(true);
@@ -36,19 +48,24 @@ public class Book {
 
         this.waitingList.notifySubscribers("There are copies of " + this.title + " available!");
         this.noOfCopies += 1;
+        return true;
+    }
+
+
+    //Get a book copy to loan to a customer
+    public String loanThisBook(){
+
+        //get a copy
+        return this.currentState.loan(this);
+
     }
 
     public void bookTaken(){
-
         this.noOfCopies -= 1;
         if (noOfCopies == 0){
             this.waitingList.notifySubscribers("There are no copies of the book " + this.title + " available!");
             ChangeState(false);
         }
-    }
-
-    public boolean loanThisBook(Customer c){
-        return this.currentState.loan(this, c);
     }
 
 

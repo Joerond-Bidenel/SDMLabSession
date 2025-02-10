@@ -19,32 +19,55 @@ public class Library {
         return this.books;
     }
 
-    public boolean loanBook(String bookname, Customer customer){
+    public boolean loanBook(String bookName, Customer customer){
 
         //Find the book
         for(Book b : books){
-            if (Objects.equals(b.title, bookname)){
+            if (Objects.equals(b.title, bookName)){
+
+
                 //Try to loan the book.
-                b.loanThisBook(customer);
-                return true;
+                String copyToLoan = b.loanThisBook();
+
+                //If there is a copy valid, then the customer can take it!
+                if (copyToLoan != null){
+                    customer.takeBook(copyToLoan);
+                    return true;
+                }
+
+                //Otherwise, we add them to the waiting list!
+                b.waitingList.subscribe((Loanee) customer);
+                return false;
             }
         }
+
+        //If the book isn't found
         System.out.println("Book Not found");
         return false;
     }
 
-    public void returnBook(Copy copy, Customer customer){
+    public boolean returnBook(String copyID, String bookName, Customer customer){
 
-        //Remove the copy from customer by returning it.
-        // If they can do this, then also return the copy instance
-        if (customer.returnBook(copy)){
-            copy.setAvailable();
+
+        for(Book b : books){
+            if (Objects.equals(b.title, bookName)){
+
+
+                //Try to return the book. This means that this book has the copyID
+                boolean validReturn = b.bookReturned(copyID);
+
+                //If we can return it, then do so
+                if (validReturn){
+                    customer.returnBook(copyID);
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
         }
-        else{
-            System.err.println("Error returning book");
-        }
-
-
+        System.err.println("Error returning book");
+        return false;
     }
 
 }

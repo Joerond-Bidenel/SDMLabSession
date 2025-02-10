@@ -2,8 +2,8 @@ package org.example;
 
 public interface LoanState {
 
-    default boolean loan(Book book, Customer c){
-        return false;
+    default String loan(Book book){
+        return null;
     }
 
 

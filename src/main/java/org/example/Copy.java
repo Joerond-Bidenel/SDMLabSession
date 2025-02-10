@@ -16,11 +16,9 @@ public class Copy {
 
     public void setAvailable() {
         this.available = true;
-        this.book.bookReturned();
     }
     public void setUnavailable() {
         this.available = false;
-        this.book.bookTaken();
     }
 
     public Boolean isAvailable() {
