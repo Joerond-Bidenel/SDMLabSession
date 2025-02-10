@@ -1,6 +1,6 @@
 package org.example;
 
-public class SchoolLibrary extends Customer implements Loanee{
+public class SchoolLibrary extends Customer{
 
     String Location = "";
 
@@ -29,11 +29,5 @@ public class SchoolLibrary extends Customer implements Loanee{
         return false;
     }
 
-    @Override
-    public void update(String message){
-        System.out.println(this.name + " has received the message!");
-        System.out.println("Message Reads: " + message);
-        System.out.println("/n");
-    }
 
 }

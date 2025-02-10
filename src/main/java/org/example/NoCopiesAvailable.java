@@ -7,7 +7,7 @@ public class NoCopiesAvailable implements LoanState{
     public String loan(Book book){
 
         //Say that they've been subscribed to the waiting list!
-        System.out.println("No copy was available. Add to Waiting List!");
+        System.out.println("No copy was available to loan!");
 
         return null;
     }

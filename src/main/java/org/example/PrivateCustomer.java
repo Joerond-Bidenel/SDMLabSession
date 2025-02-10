@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 
-public class PrivateCustomer extends Customer implements Loanee{
+public class PrivateCustomer extends Customer{
 
     public PrivateCustomer(String username, String ID){
         super(username, ID);
@@ -32,9 +32,4 @@ public class PrivateCustomer extends Customer implements Loanee{
         }
     }
 
-    @Override
-    public void update(String message){
-        System.out.println(this.name + " has received the message!");
-        System.out.println("Message Reads: " + message);
-    }
 }

@@ -35,8 +35,6 @@ public class Library {
                     return true;
                 }
 
-                //Otherwise, we add them to the waiting list!
-                b.waitingList.subscribe((Loanee) customer);
                 return false;
             }
         }
