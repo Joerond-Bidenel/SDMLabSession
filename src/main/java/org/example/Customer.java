@@ -11,7 +11,7 @@ public class Customer {
 
     public Customer(String name, String id) {
         this.name = name;
-        this.ID = ID;
+        this.ID = id;
     }
 
 

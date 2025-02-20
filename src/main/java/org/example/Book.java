@@ -21,7 +21,7 @@ public class Book {
         this.noOfCopies = NoOfCopies;
         for (int i = 0; i < NoOfCopies; i++){
             ChangeState(true);
-            copies.add(new Copy("copy" + i, this));
+            copies.add(new Copy(title + " copy#" + i, this));
         }
 
     }
@@ -51,10 +51,8 @@ public class Book {
 
     //Get a book copy to loan to a customer
     public String loanThisBook(){
-
         //get a copy
         return this.currentState.loan(this);
-
     }
 
     public void bookTaken(){
@@ -78,7 +76,6 @@ public class Book {
     public Copy getAvailableCopy(){
         for (Copy copy : copies){
             if (copy.isAvailable()){
-                copy.setUnavailable();
                 return copy;
             }
         }

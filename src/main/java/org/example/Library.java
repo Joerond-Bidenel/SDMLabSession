@@ -25,7 +25,6 @@ public class Library {
         for(Book b : books){
             if (Objects.equals(b.title, bookName)){
 
-
                 //Try to loan the book.
                 String copyToLoan = b.loanThisBook();
 
