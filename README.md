@@ -9,8 +9,11 @@ This Repo contains everything you need to complete my Honours Project Lab Sessio
 
 ### Prerequisites: 
 > A system with Java installed
+
 > Some type of IDE or Text editor for writing and running Java code
+
 > Something to write UML
+
 > (If in the Week 7 Lab Session) A connection to the "Eduroam" Network 
   
 ## UML
