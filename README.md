@@ -18,6 +18,7 @@ This Repo contains everything you need to complete my Honours Project Lab Sessio
   
 ## UML
 UML diagrams for each question are contained in the folder titled "UML". There is an accompanying file that details the question and answer for the UML diagram. 
+> You can also see the starter on LucidChart: https://lucid.app/lucidchart/06462ccd-4367-4447-b464-c557ea608cdd/edit?invitationId=inv_96992264-c95d-42bf-a63d-9c87dab1f4bb
 
 ## Code
 Each branch of this repository is the state of the code for a specific question. We start on the "Starter" Branch, where it is assumed you will download and begin. 
