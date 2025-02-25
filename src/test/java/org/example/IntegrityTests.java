@@ -18,8 +18,12 @@ public class IntegrityTests {
     //Check Superclasses Extended
     @Test
     public void superclassCheck(){
+        assertTrue("PrivateCustomer isn't a subclass of Customer", Customer.class.isAssignableFrom(customerOne.getClass()));
+        assertTrue("SchoolLibrary isn't a subclass of Customer", Customer.class.isAssignableFrom(customerTwo.getClass()));
+
+
         assertTrue("PrivateCustomer Missing Superclass Functionality", Objects.equals(customerOne.name, "John Doe") && Objects.equals(customerOne.ID, "1"));
-        assertTrue("SchoolLibrary Missing Superclass Functionality", Objects.equals(customerTwo.name, "Armadale Primary School") && Objects.equals(customerTwo.ID, "2") && Objects.equals(customerTwo.Location, "West Lothian"));
+        assertTrue("SchoolLibrary Missing Superclass Functionality", Objects.equals(customerTwo.name, "Armadale Primary School") && Objects.equals(customerTwo.ID, "2") && Objects.equals(customerTwo.location, "West Lothian"));
     }
 
     //Test we can loan a book, and that this updates the internal state of Customer and Book

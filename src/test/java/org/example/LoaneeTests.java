@@ -15,11 +15,11 @@ public class LoaneeTests {
     public void superclassImplementCheck(){
         assertFalse("Customer shouldn't implement the interface, only the subclasses should!", Loanee.class.isAssignableFrom(Customer.class));
 
-        assertTrue("PrivateCustomer isn't a child of Customer anymore!", Customer.class.isAssignableFrom(customerOne.getClass()));
-        assertTrue("SchoolLibrary isn't a child of Customer anymore!", Customer.class.isAssignableFrom(customerTwo.getClass()));
+        assertTrue("PrivateCustomer isn't a subclass of Customer anymore!", Customer.class.isAssignableFrom(customerOne.getClass()));
+        assertTrue("SchoolLibrary isn't a subclass of Customer anymore!", Customer.class.isAssignableFrom(customerTwo.getClass()));
 
         assertTrue("PrivateCustomer doesn't implement the Interface", Loanee.class.isAssignableFrom(customerOne.getClass()));
-        assertTrue("SchoolLibrary doesn't implement the Interface", Loanee.class.isAssignableFrom(customerTwo.getClass()));
+        assertTrue("SchoolLibrary doesn't implement the Interface", Loanee.class.isAssignableFrom(custTeomerTwo.getClass()));
     }
 
     //Update Method Checks

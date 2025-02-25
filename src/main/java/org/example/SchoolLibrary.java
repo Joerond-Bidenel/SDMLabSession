@@ -2,13 +2,13 @@ package org.example;
 
 public class SchoolLibrary extends Customer{
 
-    String Location = "";
+    String location = "";
 
 
     public SchoolLibrary(String name, String ID, String Location){
 
         super(name, ID);
-        this.Location = Location;
+        this.location = Location;
 
     }
 
