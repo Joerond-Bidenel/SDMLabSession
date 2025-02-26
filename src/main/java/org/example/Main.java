@@ -3,7 +3,7 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Starting Library System!");
+        System.out.println("Starting Library System! \n");
 
         //Create Library. Add Books.
         Library L = new Library();
@@ -22,7 +22,6 @@ public class Main {
 
         //John loans the 1 copy of "Flowers for Algernon".
         L.loanBook("Flowers For Algernon", customerOne);
-
 
         //Jane Also tries to loan "Flowers for Algernon" but there are now no copies left so she is added to the waiting list!
         L.loanBook("Flowers For Algernon", customerTwo);

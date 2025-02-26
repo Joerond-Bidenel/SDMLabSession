@@ -19,7 +19,7 @@ public class LoaneeTests {
         assertTrue("SchoolLibrary isn't a subclass of Customer anymore!", Customer.class.isAssignableFrom(customerTwo.getClass()));
 
         assertTrue("PrivateCustomer doesn't implement the Interface", Loanee.class.isAssignableFrom(customerOne.getClass()));
-        assertTrue("SchoolLibrary doesn't implement the Interface", Loanee.class.isAssignableFrom(custTeomerTwo.getClass()));
+        assertTrue("SchoolLibrary doesn't implement the Interface", Loanee.class.isAssignableFrom(customerTwo.getClass()));
     }
 
     //Update Method Checks

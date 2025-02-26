@@ -39,7 +39,7 @@ public class Library {
         }
 
         //If the book isn't found
-        System.out.println("Book Not found");
+        System.err.println("Book Not found");
         return false;
     }
 

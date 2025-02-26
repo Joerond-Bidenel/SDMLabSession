@@ -2,7 +2,11 @@ package org.example;
 
 public class CopiesAvailable implements LoanState{
 
-    //What book does when a copy is available!
+    /**
+     * This tells us what Book should do when a copy is available.
+     * @param book
+     * @return
+     */
     @Override
     public String loan(Book book){
 
@@ -12,9 +16,6 @@ public class CopiesAvailable implements LoanState{
 
         //Subtract a book from the available books.
         book.bookTaken();
-
-        //Helper message to say what we have done!
-        System.out.println("A customer has taken out a loan on " + book.title + ". Copy Number: " + copyToLoan.copyID);
 
         return copyToLoan.copyID;
     }
