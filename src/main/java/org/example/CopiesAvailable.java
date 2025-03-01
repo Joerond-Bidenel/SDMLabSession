@@ -4,8 +4,8 @@ public class CopiesAvailable implements LoanState{
 
     /**
      * This tells us what Book should do when a copy is available.
-     * @param book
-     * @return
+     * @param book The book instance (usually pass 'this') to loan a copy from
+     * @return the copyID that represents the loaned copy
      */
     @Override
     public String loan(Book book){

@@ -69,7 +69,7 @@ public class Book {
     }
 
     /**
-     * Decrements copy count. Changes state if copy count is 0
+     * Decrements copy count. Changes state if copy count is 0.
      */
     public void bookTaken(){
         this.noOfCopies -= 1;

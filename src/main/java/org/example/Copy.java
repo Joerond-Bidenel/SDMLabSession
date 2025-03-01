@@ -1,5 +1,10 @@
 package org.example;
 
+
+/**
+ * This class represents a copy of a book.
+ * It is available when no-one has loaned this copy.
+ */
 public class Copy {
 
     Book book;
