@@ -1,24 +1,19 @@
 package org.example;
 
-import javax.print.attribute.standard.Copies;
 import java.util.ArrayList;
 
 public class Book {
 
-    //Variables storing data about a book.
     String title;
     String author;
     Integer noOfCopies;
     LoanState currentState;
     private final LoanState[] possibleStates = {new NoCopiesAvailable(), new CopiesAvailable()};
     ArrayList<Copy> copies = new ArrayList<>();
+    WaitingList waitingList = new WaitingList();
 
 
-    /**    Constructor Method. On instantiation, sets book data and creates a number of copy instances for the book
-     * @param author Book authour
-     * @param title Book title
-     * @param NoOfCopies How many copies of the book exist - and should be created in the system
-     */
+    //Constructor Method
     public Book(String title, String author, Integer NoOfCopies) {
 
         this.title = title;
@@ -31,11 +26,6 @@ public class Book {
 
     }
 
-    /**
-     * Returns a copy of this book. Checks that the copy is valid, then sets it available and increases internal copy count. Possibly changes state if this becomes the only available copy
-     * @param copyID The ID of the copy to return
-     * @return True if the copy was valid and returned - False if unable to return the copy
-     */
     public boolean bookReturned(String copyID){
 
         //Set the copy available if it exists and has been taken out already
@@ -54,35 +44,28 @@ public class Book {
             ChangeState(true);
         }
 
+        waitingList.notifySubscribers("Returned");
         this.noOfCopies += 1;
         return true;
     }
 
 
-    /**
-     * Invokes State. Gets a copy of the book that can be loaned
-     * @return returns an available to loan Copy of the book, or null if none available.
-     */
+    //Get a book copy to loan to a customer
     public String loanThisBook(){
         //get a copy
         return this.currentState.loan(this);
     }
 
-    /**
-     * Decrements copy count. Changes state if copy count is 0.
-     */
     public void bookTaken(){
         this.noOfCopies -= 1;
         if (noOfCopies == 0){
+            waitingList.notifySubscribers("All_Loaned");
             ChangeState(false);
         }
     }
 
 
-    /**
-     * Changes the Loanstate, depending on whether there are copies available or not.
-     * @param availableCopies True or False whether there are available copies of a book
-     */
+    //Changes the state.
     private void ChangeState(Boolean availableCopies){
         if (availableCopies){
             this.currentState = possibleStates[1];
@@ -92,11 +75,6 @@ public class Book {
         }
     };
 
-
-    /**
-     * For every copy of this book, find one that is available to loan.
-     * @return an available copy that can be loaned, null otherwise
-     */
     public Copy getAvailableCopy(){
         for (Copy copy : copies){
             if (copy.isAvailable()){
