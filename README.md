@@ -5,27 +5,30 @@ After you complete (or attempt) the Lab Session, please complete the survey. The
 No personal data will be collected - not even your email.
 
 ## How to use
-This Repo contains everything you need to complete my Honours Project Lab Session. See the headings below for specific topics and advice.
+This Repo contains (almost) everything you need to participate in this Lab Session. See the headings below for specific topics and advice.
 
 ### Prerequisites: 
-> A system with Java installed
+> A system with Java and Maven installed (JDK 21)
 
-> Some type of IDE or Text editor for writing and running Java code
+> An IDE or Text editor for writing and running Java code (IntelliJ IDEA)
 
-> Something to write UML
+> Something to write UML (Draw.io)
 
 > (If in the Week 7 Lab Session) A connection to the "Eduroam" Network 
   
 ## UML
-UML diagrams for each question are contained in the folder titled "UML". There is an accompanying file that details the question and answer for the UML diagram. 
-> You can also see the starter on LucidChart: https://lucid.app/lucidchart/06462ccd-4367-4447-b464-c557ea608cdd/edit?invitationId=inv_96992264-c95d-42bf-a63d-9c87dab1f4bb
+UML diagrams for each question are contained in the folder titled "UML".
+> To open the Starter on Draw.io - open the website, press "File", "import", "Device", then choose the "starter.drawio" file in the UML folder.
+> You could also import the PNG files straight into Draw.io, but you won't be able to edit the existing classes.
 
 ## Code
-Each branch of this repository is the state of the code for a specific question. We start on the "Starter" Branch, where it is assumed you will download and begin. 
+Each branch of this repository is the state of the code for a specific question. 
+The "Starter" branch is the one you should start on.
 
-Switching to branch "Question 3.2" will have the code in a state so you could begin "Question 3.2". This will include the tests for the question.
-You could then look at "Question 4.2" if you wanted the answer to 3.2.
+>"QuestionOneAnswers" has the answers for Q1 on Loanees
+>"QuestionTwoAnswers" has the answers for Q2 on WaitingList
+>"QuestionThreeAnswers" has the answers for Q3 on Singleton
 
 ## Tests
-Each branch of the code includes the test suite for that question. The starter code has the test sets for all questions. 
-You can download the tests individually from the "Tests" folder.
+Each branch of the code includes the test suite for that question. 
+The starter code has the test sets for all questions in the "Tests" folder. To use them, copy them from the tests folder to the "src/test/java/org.example" folder, beside "IntegrityTests"
