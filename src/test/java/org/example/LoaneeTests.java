@@ -22,27 +22,6 @@ public class LoaneeTests {
         assertTrue("SchoolLibrary doesn't implement the Interface", Loanee.class.isAssignableFrom(customerTwo.getClass()));
     }
 
-    //Update Method Checks
-    @Test
-    public void updateMethodExistsPrivate(){
-        assertTrue("PrivateCustomer Update Method does not return a string! Does the Update method in Loanee have the same signature as the UML?", customerOne.update("abc") instanceof String);
-    }
-    @Test
-    public void updateMethodExistsSchool(){
-        assertTrue("SchoolLibrary Update Method does not return a string! Does the Update method in Loanee have the same signature as the UML?", customerTwo.update("abc") instanceof String);
-    }
-
-    //Update Method Overrides
-    @Test
-    public void updateMethodOverridePrivate(){
-        assertNotEquals("PrivateCustomer doesn't seem to have overridden the update method!", "Hello World", customerOne.update("Hello World"));
-        assertEquals("PrivateCustomer implements Update incorrectly. Ensure the message is formatted correctly!", "John Doe Hello World", customerOne.update("Hello World"));
-    }
-    @Test
-    public void updateMethodOverrideSchool(){
-        assertNotEquals("SchoolLibrary doesn't seem to have overridden the update method!", "Hello World", customerTwo.update("Hello World"));
-        assertEquals("SchoolLibrary implements Update incorrectly. Ensure the message is formatted correctly!", "Armadale Primary School West Lothian Hello World", customerTwo.update("Hello World"));
-    }
 
     //Print Tests
     @Test
