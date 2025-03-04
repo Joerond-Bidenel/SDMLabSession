@@ -1,18 +1,16 @@
 package org.example;
 
-import java.util.ArrayList;
-
-/**
- * A private customer - that is, normal people loaning books.
- * A normal user might take out a loaned book and store it, returning it in a week's time.
- */
-public class PrivateCustomer extends Customer{
+public class PrivateCustomer extends Customer implements Loanee{
 
     public PrivateCustomer(String username, String ID){
         super(username, ID);
     }
 
 
+    /*
+    A normal user might take out a loaned book and store it, returning it in a week's time.
+    This would not permanmently remove the copy from our library
+     */
 
     //Take out a copy. Store the copy in the internal list.
     @Override
@@ -30,6 +28,14 @@ public class PrivateCustomer extends Customer{
         else{
             return false;
         }
+    }
+
+    @Override
+    public void update(String message){
+
+        String message2 = name + " " + message;
+        System.out.println(message2);
+
     }
 
 }
